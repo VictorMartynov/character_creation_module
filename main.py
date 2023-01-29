@@ -65,7 +65,11 @@ warrior = Warrior('Кодослав')
 
 
 def start_training(character):
-
+    """
+    Функция проверяет текст при вводе на совпадение с словарем,
+    для того чтобы определить какое действие и какой персонаж
+    будет его выполнять.
+    """
     print('Потренируйся управлять своими навыками.')
     print('Введи одну из команд: attack — чтобы атаковать противника, '
           'defence — чтобы блокировать атаку противника или '
@@ -117,4 +121,4 @@ if __name__ == '__main__':
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
     char_class: str = choice_char_class(char_name)
-    print(start_training(char_class.Character))
+    print(start_training(char_class))
