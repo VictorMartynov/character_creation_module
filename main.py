@@ -62,19 +62,9 @@ class Healer(Character):
 
 
 warrior = Warrior('Кодослав')
-print(warrior)
-print(warrior.attack())
-print(warrior.defence())
-print(warrior.special())
 
 
 def start_training(character):
-
-    commands = {
-                'attack': character.attack,
-                'defence': character.defence,
-                'special': character.special
-            }
 
     print('Потренируйся управлять своими навыками.')
     print('Введи одну из команд: attack — чтобы атаковать противника, '
@@ -84,9 +74,14 @@ def start_training(character):
     cmd = None
     while cmd != 'skip':
         cmd = input('Введите команду: ')
+        commands = {
+                'attack': character.attack,
+                'defence': character.defence,
+                'special': character.special
+            }
         for key in commands:
-            if cmd == commands[key]:
-                print(commands[key])
+            if cmd == key:
+                return character.attack()
     return 'Тренировка окончена.'
 
 
@@ -121,5 +116,5 @@ if __name__ == '__main__':
           'Сейчас твоя выносливость - 80, атака - 5 и защита - 10.')
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
-    char_class: str = choice_char_class()
-    print(start_training(char_name, char_class))
+    char_class: str = choice_char_class(char_name)
+    print(start_training(char_class.Character))
